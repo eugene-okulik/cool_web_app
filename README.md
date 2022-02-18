@@ -5,6 +5,7 @@ Web application for study purposes
 
 ### Environment
 set environment variable COOL_PORT to the port number you want to use
+set environment variable COOL_IP to the IP of the host machine
 
 ### Log
 set environment variable COOL_LOG to the path where you want to store your server's log

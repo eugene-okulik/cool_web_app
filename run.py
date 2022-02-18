@@ -1,8 +1,10 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import os
+import socket
 import time
 
-hostName = "192.168.0.124"
+
+hostName = os.environ['COOL_IP']
 serverPort = int(os.environ['COOL_PORT'])
 log_path = os.environ['COOL_LOG']
 config_path = '/usr/share/cool-app/'
@@ -22,6 +24,7 @@ class MyServer(BaseHTTPRequestHandler):
         self.wfile.write(bytes("<p>{0}</p>".format(self.read_file()), "utf-8"))
         self.wfile.write(bytes("</body></html>", "utf-8"))
         self.write_log('site accessed from {0}'.format(self.client_address))
+
 
     def read_file(self):
         with open(content_file, 'r') as my_file:
