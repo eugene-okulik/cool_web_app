@@ -24,7 +24,7 @@ class MyServer(BaseHTTPRequestHandler):
         self.wfile.write(bytes("<p>{0}</p>".format(self.read_file()), "utf-8"))
         self.wfile.write(bytes("</body></html>", "utf-8"))
         self.write_log('site accessed from {0}'.format(self.client_address))
-        if self.path:
+        if self.path != '/' and self.path != '/favicon.ico':
             self.write_log('Request: {0}'.format(self.path))
 
 
