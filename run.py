@@ -2,7 +2,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import os
 import time
 
-hostName = "localhost"
+hostName = "192.168.0.124"
 serverPort = int(os.environ['COOL_PORT'])
 log_path = os.environ['COOL_LOG']
 config_path = '/usr/share/cool-app/'
@@ -34,6 +34,7 @@ class MyServer(BaseHTTPRequestHandler):
         else:
             with open('{0}/cool.log'.format(log_path), 'a') as log_file:
                 log_file.write('{0}\n'.format(message))
+
 
 if __name__ == "__main__":
     webServer = HTTPServer((hostName, serverPort), MyServer)
